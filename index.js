@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mysql=require('mysql2');
 const express=require('express');
 const cors=require('cors')
@@ -6,10 +7,10 @@ const app=express();
 const router=express.Router();
 
 const conn=mysql.createConnection({
-    host:'185.105.110.5',
-    user:'p525160_ingvar94',
-    password:'kI7lH1kS1a',
-    database:'p525160_todo'
+    host:process.env.HOST,
+    user:process.env.USER,
+    password:process.env.PASSWORD,
+    database:process.env.DATABASE
 })
 
 const PORT=process.env.port || 3001; 
