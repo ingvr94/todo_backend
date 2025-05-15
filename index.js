@@ -20,10 +20,7 @@ app.listen(PORT,()=>console.log(`Server started on port ${PORT}`));
 app.use(express.json());
 
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.use(cors())
 
 app.get('/',(req,res)=>{
     conn.query('SELECT * FROM task_list',
